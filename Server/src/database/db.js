@@ -22,12 +22,6 @@ db.sequelize = sequelize;
 db.notes = require('../models/notesModel')(sequelize, DataTypes);
 
 // Synchronize all defined models with the database
-sequelize.sync({ force: true })
-    .then(() => {
-        console.log('Tables created (if not exist) successfully.');
-    })
-    .catch((error) => {
-        console.error('Error creating tables:', error);
-    });
+sequelize.sync({ force: false });
 
 module.exports = db;
